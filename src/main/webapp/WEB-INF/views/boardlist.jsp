@@ -33,6 +33,33 @@
             background-color: #006bb3;
             color: white;
         }
+        #searchDrop {
+            width: auto;
+            justify-items: end;
+
+        }
+
+        #main {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        #searchText {
+            margin-right: 12px;
+        }
+
+        .searchBox {
+            margin-right: 12px;
+            max-width: 250px;
+        }
+
+        #dropdown1 {
+            text-align: right;
+        }
+
+        .title {
+            font-family: Lucida Console, Courier New, monospace;
+        }
     </style>
     <script>
         function delete_ok(id){
@@ -40,32 +67,75 @@
             if(a) location.href='deleteok/' + id;
         }
     </script>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+            crossorigin="anonymous">
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
 </head>
 <body>
-<h1>자유게시판</h1>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid px-4">
+        <a class="navbar-brand mb-0 h1" href="#">세영이 독서일기</a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="add">Add</a>
+                </li>
 
-<table id="list" width="90%">
-    <tr>
-        <th>Id</th>
-        <th>Title</th>
-        <th>Writer</th>
-        <th>Content</th>
-        <th>Regdate</th>
-        <th>Edit</th>
-        <th>Delete</th>
-    </tr>
-    <c:forEach items="${list}" var="u">
+        </div>
+    </div>
+</nav>
+<br> <br> <br>
+
+<div id="main">
+    <h1>Book List</h1>
+    <br>
+
+    <table id="list" width="90%">
         <tr>
-            <td>${u.getSeq()}</td>
-            <td>${u.getTitle()}</td>
-            <td>${u.getWriter()}</td>
-            <td>${u.getContent()}</td>
-            <td>${u.getRegdate()}</td>
-            <td><a href="editform/${u.getSeq()}">Edit</a></td>
-            <td><a href="javascript:delete_ok('${u.getSeq()}')">Delete</a></td>
+            <th>#</th>
+            <th>제목</th>
+            <th>저자</th>
+            <th>장르</th>
+            <th>작성일</th>
+            <th>수정일</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>View</th>
         </tr>
-    </c:forEach>
-</table>
-<br/><a href="add">Add New Post</a>
+        <c:forEach items="${list}" var="u">
+            <tr>
+                <td>${u.getSeq()}</td>
+                <td>${u.getTitle()}</td>
+                <td>${u.getWriter()}</td>
+                <td>${u.getCategory()}</td>
+                <td>${u.getRegdate()}</td>
+                <td>${u.getEditdate()}</td>
+
+                <td><button class="btn btn-outline-secondary btn-sm"><a class="link-underline link-underline-opacity-0 link-dark " href="editform/${u.getSeq()}">Edit</a></button></td>
+                <td><button class="btn btn-outline-secondary btn-sm"><a href="javascript:delete_ok('${u.getSeq()}')">Delete</a></button></td>
+                <td><button class="btn btn-outline-secondary btn-sm"><a class="link-underline link-underline-opacity-0 link-dark " href="view.jsp?id=${u.getSeq()}">View</a></button></td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>
 </body>
 </html>
