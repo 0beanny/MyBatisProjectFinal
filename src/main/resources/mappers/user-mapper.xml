@@ -4,7 +4,8 @@
 
     <select id="getUser" resultType="com.example.member.UserVO">
         select userid, username from member
-        where userid=#{userid} and password=password(#{password})
+        where userid=#{userid} and
+             password=#{password}
     </select>
 
 </mapper>
