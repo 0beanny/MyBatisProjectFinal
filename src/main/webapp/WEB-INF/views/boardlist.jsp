@@ -132,7 +132,7 @@
 
                 <td><button class="btn btn-outline-secondary btn-sm"><a class="link-underline link-underline-opacity-0 link-dark " href="editform/${u.getSeq()}">Edit</a></button></td>
                 <td><button class="btn btn-outline-secondary btn-sm"><a href="javascript:delete_ok('${u.getSeq()}')">Delete</a></button></td>
-                <td><button class="btn btn-outline-secondary btn-sm"><a class="link-underline link-underline-opacity-0 link-dark " href="view.jsp?id=${u.getSeq()}">View</a></button></td>
+                <td><button class="btn btn-outline-secondary btn-sm"><a class="link-underline link-underline-opacity-0 link-dark " href="view/${u.getSeq()}">View</a></button></td>
             </tr>
         </c:forEach>
     </table>
