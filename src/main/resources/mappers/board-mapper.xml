@@ -20,6 +20,6 @@
         select * from BOARD order by seq desc
     </select>
     <select id="getBoard" resultType="board">
-        select * from BOARD where id = #{id}
+        select * from BOARD where seq=#{seq}
     </select>
 </mapper>
