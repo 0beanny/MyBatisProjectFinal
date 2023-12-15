@@ -18,6 +18,7 @@ public class LoginController {
     public String login(){
         return "login";
     }
+    //gkdl~
 
     @RequestMapping(value="/loginOk",method = RequestMethod.POST)
     public String loginCheck(HttpSession session,UserVO vo){
