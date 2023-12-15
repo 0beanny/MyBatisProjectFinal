@@ -1,33 +1,19 @@
-package com.example.board;
+package com.example.book;
 
 import java.util.Date;
 
-public class BoardVO {
+public class BookVO {
     private int seq;
     private String title;
     private String writer;
     private String content;
     private Date regdate;
-    private int cnt;
+    private String category;
+    private int rating;
+    private String price;
     private Date editdate;
 
-    public Date getEditdate() {
-        return editdate;
-    }
 
-    public void setEditdate(Date editdate) {
-        this.editdate = editdate;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    private String category;
 
     public String getContent() {
         return content;
@@ -43,14 +29,6 @@ public class BoardVO {
 
     public void setRegdate(Date regdate) {
         this.regdate = regdate;
-    }
-
-    public int getCnt() {
-        return cnt;
-    }
-
-    public void setCnt(int cnt) {
-        this.cnt = cnt;
     }
 
     public int getSeq() {
@@ -75,5 +53,37 @@ public class BoardVO {
 
     public void setWriter(String writer) {
         this.writer = writer;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public Date getEditdate() {
+        return editdate;
+    }
+
+    public void setEditdate(Date editdate) {
+        this.editdate = editdate;
     }
 }
