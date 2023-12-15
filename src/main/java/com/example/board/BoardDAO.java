@@ -18,6 +18,22 @@ public class BoardDAO {
         return list;
     }
 
+    public int insertBoard(BoardVO vo) {
+        return sqlSession.insert("Board.insertBoard",vo);
+    }
+
+    public int deleteBoard(int id) {
+        return sqlSession.delete("Board.deleteBoard",id);
+    }
+    public int updateBoard(BoardVO vo) {
+        return sqlSession.update("Board.deleteBoard",vo);
+    }
+
+    public BoardVO getBoard(int seq) {
+        return sqlSession.selectOne("Board.getBoard",seq);
+    }
+
+
 //    public void setTemplate(JdbcTemplate template){
 //        this.template = template;
 //    }
