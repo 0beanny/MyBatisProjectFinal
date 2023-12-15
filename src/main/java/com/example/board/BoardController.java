@@ -18,6 +18,7 @@ public class BoardController {
         model.addAttribute("list",list);
         return "boardlist";
     }
+    //GKL
 
 //    @RequestMapping("/board/add")
 //    public String addPost() {
