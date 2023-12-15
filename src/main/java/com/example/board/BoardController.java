@@ -67,9 +67,10 @@ public class BoardController {
         return "redirect:../list";
     }
     @RequestMapping("/board/view/{id}")
-    public String viewPost(@PathVariable("id") int id,Model model) {
+    public String viewPost(@PathVariable("id") Integer id,Model model) {
         BoardVO boardVO = boardService.getBoard(id);
-        model.addAttribute("u",boardVO);
+        model.addAttribute("boardVO",boardVO);
+        System.out.println(boardVO.getTitle());
         return "view";
     }
 }

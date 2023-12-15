@@ -30,7 +30,7 @@ public class BoardDAO {
     }
 
     public BoardVO getBoard(int seq) {
-        return sqlSession.selectOne("Board.deleteBoard",seq);
+        return sqlSession.selectOne("Board.getBoard",seq);
     }
 
 

@@ -75,10 +75,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
+                    <a class="nav-link active" aria-current="page" href="../list">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="addpostform.jsp">Add</a>
+                    <a class="nav-link" href="../add">Add</a>
                 </li>
 
         </div>
@@ -86,7 +86,7 @@
 </nav>
 
 <div id="main d-flex" >
-    <h1 id="title"><%=u.getTitle()%></h1>
+    <h1 id="title" >${boardVO.getTitle()}</h1>
     <hr id="hr1">
 
     <div class="container">
@@ -96,7 +96,7 @@
         <p></p>
         <p>></p>
 
-        <p><%=u.getContent()%></p>
+        <p>${boardVO.getContent()}</p>
     </div>
 </div>
 
