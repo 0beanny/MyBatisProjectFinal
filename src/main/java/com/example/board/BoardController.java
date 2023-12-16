@@ -28,6 +28,7 @@ public class BoardController {
 
     @RequestMapping("/board/addok")
     public String addPostOk(BoardVO vo) {
+        System.out.println("여기는 왔니? ");
         if(boardService.insertBoard(vo) == 0) {
             System.out.println("데이터 추가 실패");
         }

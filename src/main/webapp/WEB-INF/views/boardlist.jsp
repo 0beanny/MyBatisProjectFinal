@@ -60,6 +60,7 @@
         .title {
             font-family: Lucida Console, Courier New, monospace;
         }
+
     </style>
     <script>
         function delete_ok(id){
@@ -80,7 +81,7 @@
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid px-4">
-        <a class="navbar-brand mb-0 h1" href="#">세영이 독서일기</a>
+        <a class="navbar-brand mb-0 h1" href="#">고구마 독서일기</a>
         <button
                 class="navbar-toggler"
                 type="button"
@@ -94,7 +95,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="add">Add</a>
@@ -103,40 +104,88 @@
         </div>
     </div>
 </nav>
-<br> <br> <br>
 
 <div id="main">
-    <h1>Book List</h1>
+    <div name="search" class="row mb-3 mt-5 border-bottom ">
+        <h2 class="col-sm-6 p-3">Book List</h2>
+        <div class="col-sm-6">
+            <form name="search" action="search.php" method="post">
+                <div class="row column-gap-2 py-3">
+                    <select
+                            class="form-select col "
+                            name="genre"
+                            aria-label="Default select example">
+                        <option selected="selected">장르</option>
+                        <option value="1">소설</option>
+                        <option value="2">에세이</option>
+                        <option value="3">시</option>
+                    </select>
+                    <input type="text" class="col-6 " placeholder="Titie" name="content">
+                    <button type="submit" class="col btn btn-primary" onclick="return searchVal()">search</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-    <br>
 
-    <table id="list" width="90%">
-        <tr>
-            <th>#</th>
-            <th>제목</th>
-            <th>저자</th>
-            <th>장르</th>
-            <th>작성일</th>
-            <th>수정일</th>
-            <th>Edit</th>
-            <th>Delete</th>
-            <th>View</th>
-        </tr>
-        <c:forEach items="${list}" var="u">
-            <tr>
-                <td>${u.getSeq()}</td>
-                <td>${u.getTitle()}</td>
-                <td>${u.getWriter()}</td>
-                <td>${u.getCategory()}</td>
-                <td>${u.getRegdate()}</td>
-                <td>${u.getEditdate()}</td>
+    <div name="table" class="">
+        <table class="table table-hover" width="90%">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>제목</th>
+                    <th>저자</th>
+                    <th>장르</th>
+                    <th>별점</th>
+                    <th>가격</th>
+                    <th>작성일</th>
+                    <th>수정일</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    <th>View</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach items="${list}" var="u">
+                    <tr>
+                        <td>${u.getSeq()}</td>
+                        <td>${u.getTitle()}</td>
+                        <td>${u.getWriter()}</td>
+                        <td>${u.getCategory()}</td>
+                        <td>${u.getRating()}</td>
+                        <td>${u.getPrice()}</td>
+                        <td>${u.getRegdate()}</td>
+                        <td>${u.getEditdate()}</td>
 
-                <td><button class="btn btn-outline-secondary btn-sm"><a class="link-underline link-underline-opacity-0 link-dark " href="editform/${u.getSeq()}">Edit</a></button></td>
-                <td><button class="btn btn-outline-secondary btn-sm"><a href="javascript:delete_ok('${u.getSeq()}')">Delete</a></button></td>
-                <td><button class="btn btn-outline-secondary btn-sm"><a class="link-underline link-underline-opacity-0 link-dark " href="view/${u.getSeq()}">View</a></button></td>
-            </tr>
-        </c:forEach>
-    </table>
+                        <td><button class="btn btn-outline-secondary btn-sm"><a class="link-underline link-underline-opacity-0 link-dark " href="editform/${u.getSeq()}">Edit</a></button></td>
+                        <td><button class="btn btn-outline-secondary btn-sm"><a href="javascript:delete_ok('${u.getSeq()}')">Delete</a></button></td>
+                        <td><button class="btn btn-outline-secondary btn-sm"><a class="link-underline link-underline-opacity-0 link-dark " href="view/${u.getSeq()}">View</a></button></td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+    </div>
+
+    <div name="pagelink" class="d-flex justify-content-center">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href="#">Previous</a>
+            </li>
+            <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+
+    </div>
 </div>
 </body>
 </html>

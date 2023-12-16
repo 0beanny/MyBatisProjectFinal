@@ -10,6 +10,24 @@ public class BoardVO {
     private Date regdate;
     private int cnt;
     private Date editdate;
+    private String price;
+    private String rating;
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
 
     public Date getEditdate() {
         return editdate;
